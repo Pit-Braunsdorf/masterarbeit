@@ -1,9 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.16
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Masterarbeit.DatabaseService", "Masterarbeit.DatabaseService\Masterarbeit.DatabaseService.csproj", "{598F8334-1162-4734-82F4-D0118CE5B3F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masterarbeit.DatabaseService", "Masterarbeit.DatabaseService\Masterarbeit.DatabaseService.csproj", "{598F8334-1162-4734-82F4-D0118CE5B3F6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masterarbeit.DatabaseService.App", "Masterarbeit.DatabaseService.App\Masterarbeit.DatabaseService.App.csproj", "{D175846E-E5B3-4E34-836E-FE19B246033A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masterarbeit.DatabaseService.Contracts", "Masterarbeit.DatabaseService.Contracts\Masterarbeit.DatabaseService.Contracts.csproj", "{99DBD077-B118-4FD7-953A-1F118F4A0BED}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masterarbeit.DatabaseService.DatabaseAccess", "Masterarbeit.DatabaseService.DatabaseAccess\Masterarbeit.DatabaseService.DatabaseAccess.csproj", "{48273370-DE78-4F5A-A145-B5AFD9CBF6DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Masterarbeit.DatabaseService.Database", "Masterarbeit.DatabaseService.Database\Masterarbeit.DatabaseService.Database.csproj", "{EF049D04-3324-47A4-9817-DF0DD5C00FDE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +23,27 @@ Global
 		{598F8334-1162-4734-82F4-D0118CE5B3F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{598F8334-1162-4734-82F4-D0118CE5B3F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{598F8334-1162-4734-82F4-D0118CE5B3F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D175846E-E5B3-4E34-836E-FE19B246033A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D175846E-E5B3-4E34-836E-FE19B246033A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D175846E-E5B3-4E34-836E-FE19B246033A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D175846E-E5B3-4E34-836E-FE19B246033A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99DBD077-B118-4FD7-953A-1F118F4A0BED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99DBD077-B118-4FD7-953A-1F118F4A0BED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99DBD077-B118-4FD7-953A-1F118F4A0BED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99DBD077-B118-4FD7-953A-1F118F4A0BED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48273370-DE78-4F5A-A145-B5AFD9CBF6DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48273370-DE78-4F5A-A145-B5AFD9CBF6DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48273370-DE78-4F5A-A145-B5AFD9CBF6DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48273370-DE78-4F5A-A145-B5AFD9CBF6DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF049D04-3324-47A4-9817-DF0DD5C00FDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF049D04-3324-47A4-9817-DF0DD5C00FDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF049D04-3324-47A4-9817-DF0DD5C00FDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF049D04-3324-47A4-9817-DF0DD5C00FDE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D7815500-095A-4082-9C66-D5C1BD69183C}
 	EndGlobalSection
 EndGlobal

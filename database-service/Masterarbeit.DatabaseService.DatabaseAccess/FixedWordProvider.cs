@@ -69,7 +69,7 @@ namespace Masterarbeit.DatabaseService.DatabaseAccess
 
         public IEnumerable<FixedWord> GetAll()
         {
-            var dbFixedWords = _databaseContext.FixedWords;
+            var dbFixedWords = _databaseContext.FixedWords.AsEnumerable();
             var fixedWords = MappingHelper.Map(dbFixedWords);
             return fixedWords;
         }

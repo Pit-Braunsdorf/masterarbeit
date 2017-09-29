@@ -37,6 +37,13 @@ namespace Masterarbeit.DatabaseService
 
             services.AddTransient<FixedWordInteractor>();
             services.AddTransient<FixedWordProvider>();
+
+            services.AddTransient<WordInteractor>();
+            services.AddTransient<WordProvider>();
+
+            services.AddTransient<ImageInteractor>();
+            services.AddTransient<ImageProvider>();
+
             services.AddTransient<DatabaseContext>();
         }
 

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Masterarbeit.DatabaseService.Contracts;
 using Masterarbeit.DatabaseService.DatabaseAccess;
+using Masterarbeit.Shared.Contracts;
 
 namespace Masterarbeit.DatabaseService.App
 {

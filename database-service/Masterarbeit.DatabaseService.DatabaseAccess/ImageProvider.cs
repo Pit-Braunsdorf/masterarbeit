@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Masterarbeit.DatabaseService.Contracts;
+using Masterarbeit.Shared.Contracts;
 using Masterarbeit.DatabaseService.Database;
 using Masterarbeit.DatabaseService.DatabaseAccess.Helper;
 

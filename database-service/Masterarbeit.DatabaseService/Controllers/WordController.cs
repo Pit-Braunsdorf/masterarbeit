@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Masterarbeit.DatabaseService.App;
-using Masterarbeit.DatabaseService.Contracts;
+using Masterarbeit.Shared.Contracts;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Masterarbeit.DatabaseService.Controllers

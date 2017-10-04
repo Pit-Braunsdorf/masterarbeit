@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Masterarbeit.DatabaseService.Contracts;
+using Masterarbeit.Shared.Contracts;
 using Masterarbeit.DatabaseService.DatabaseAccess;
 
 namespace Masterarbeit.DatabaseService.App

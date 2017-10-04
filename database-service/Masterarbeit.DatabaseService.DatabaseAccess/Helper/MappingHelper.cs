@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Masterarbeit.DatabaseService.Contracts;
+using Masterarbeit.Shared.Contracts;
 
 namespace Masterarbeit.DatabaseService.DatabaseAccess.Helper
 {
     public static class MappingHelper
     {
-        public static Database.Model.FixedWord Map(Contracts.FixedWord fixedWord)
+        public static Database.Model.FixedWord Map(FixedWord fixedWord)
         {
             return new Database.Model.FixedWord
             {
@@ -18,9 +18,9 @@ namespace Masterarbeit.DatabaseService.DatabaseAccess.Helper
             };
         }
 
-        public static Contracts.FixedWord Map(Database.Model.FixedWord dbFixedWord)
+        public static FixedWord Map(Database.Model.FixedWord dbFixedWord)
         {
-            return new Contracts.FixedWord
+            return new FixedWord
             {
                 Id = dbFixedWord.Id,
                 Inserted = dbFixedWord.Inserted,
@@ -30,14 +30,14 @@ namespace Masterarbeit.DatabaseService.DatabaseAccess.Helper
             };
         }
 
-        public static IEnumerable<Contracts.FixedWord> Map(IEnumerable<Database.Model.FixedWord> dbFixedWords)
+        public static IEnumerable<FixedWord> Map(IEnumerable<Database.Model.FixedWord> dbFixedWords)
         {
             return dbFixedWords.Select(Map);
         }
 
         public static Word Map(Database.Model.Word dbFixedWords)
         {
-            return new Contracts.Word
+            return new Word
             {
                 Id = dbFixedWords.Id,
                 Inserted = dbFixedWords.Inserted,
@@ -93,7 +93,21 @@ namespace Masterarbeit.DatabaseService.DatabaseAccess.Helper
             {
                 Id = category.Id,
                 Name = category.Name,
-                Tags = category.Tags
+                Tags = MappingHelper.Map(category.Tags).ToList()
+            };
+        }
+
+        private static IEnumerable<Database.Model.Tags> Map(IEnumerable<Tags> tags)
+        {
+            return tags.Select(Map);
+        }
+
+        private static Database.Model.Tags Map(Tags tags)
+        {
+            return new Database.Model.Tags
+            {
+                Id = tags.Id,
+                Tag = tags.Tag
             };
         }
 
@@ -127,8 +141,22 @@ namespace Masterarbeit.DatabaseService.DatabaseAccess.Helper
             return new Category
             {
                 Id = category.Id,
-                Tags = category.Tags,
+                Tags = MappingHelper.Map(category.Tags).ToList(),
                 Name = category.Name
+            };
+        }
+
+        public static IEnumerable<Tags> Map(IEnumerable<Database.Model.Tags> tags)
+        {
+            return tags.Select(Map);
+        }
+
+        public static Tags Map(Database.Model.Tags tags)
+        {
+            return new Tags
+            {
+                Id = tags.Id,
+                Tag = tags.Tag
             };
         }
 

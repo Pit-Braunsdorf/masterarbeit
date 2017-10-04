@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using Masterarbeit.DatabaseService.Contracts;
+using Masterarbeit.Shared.Contracts;
 using Masterarbeit.DatabaseService.Database;
 using Masterarbeit.DatabaseService.DatabaseAccess.Helper;
 

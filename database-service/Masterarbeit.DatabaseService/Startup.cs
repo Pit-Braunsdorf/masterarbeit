@@ -44,6 +44,9 @@ namespace Masterarbeit.DatabaseService
             services.AddTransient<ImageInteractor>();
             services.AddTransient<ImageProvider>();
 
+            services.AddTransient<CategoryInteractor>();
+            services.AddTransient<CategoryProvider>();
+
             services.AddTransient<DatabaseContext>();
         }
 

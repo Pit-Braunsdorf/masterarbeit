@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Masterarbeit.DatabaseService.Contracts\Masterarbeit.DatabaseService.Contracts.csproj" />
+    <ProjectReference Include="..\..\shared\Masterarbeit.Shared.Contracts\Masterarbeit.Shared.Contracts.csproj" />
     <ProjectReference Include="..\Masterarbeit.DatabaseService.DatabaseAccess\Masterarbeit.DatabaseService.DatabaseAccess.csproj" />
   </ItemGroup>
 

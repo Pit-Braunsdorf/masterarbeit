@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Masterarbeit.Shared.Contracts;
 using Masterarbeit.DatabaseService.App;
-using Masterarbeit.DatabaseService.Contracts;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Masterarbeit.DatabaseService.Controllers
@@ -42,10 +42,9 @@ namespace Masterarbeit.DatabaseService.Controllers
         }
 
         // PUT api/fixedword/{id}
-        [HttpPut("{id}")]
-        public ActionResult Put(int id, [FromBody]FixedWord fixedWord)
+        [HttpPut]
+        public ActionResult Put([FromBody]FixedWord fixedWord)
         {
-            fixedWord.Id = id;
             _fixedWordInteractor.Update(fixedWord);
             return new AcceptedResult();
         }

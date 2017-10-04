@@ -7,11 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masterarbeit.DatabaseServic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masterarbeit.DatabaseService.App", "Masterarbeit.DatabaseService.App\Masterarbeit.DatabaseService.App.csproj", "{D175846E-E5B3-4E34-836E-FE19B246033A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masterarbeit.DatabaseService.Contracts", "Masterarbeit.DatabaseService.Contracts\Masterarbeit.DatabaseService.Contracts.csproj", "{99DBD077-B118-4FD7-953A-1F118F4A0BED}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masterarbeit.DatabaseService.DatabaseAccess", "Masterarbeit.DatabaseService.DatabaseAccess\Masterarbeit.DatabaseService.DatabaseAccess.csproj", "{48273370-DE78-4F5A-A145-B5AFD9CBF6DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Masterarbeit.DatabaseService.Database", "Masterarbeit.DatabaseService.Database\Masterarbeit.DatabaseService.Database.csproj", "{EF049D04-3324-47A4-9817-DF0DD5C00FDE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masterarbeit.DatabaseService.Database", "Masterarbeit.DatabaseService.Database\Masterarbeit.DatabaseService.Database.csproj", "{EF049D04-3324-47A4-9817-DF0DD5C00FDE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{09FBF95F-D6A5-403B-BD93-0A25D1A747FB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masterarbeit.Shared.Contracts", "..\shared\Masterarbeit.Shared.Contracts\Masterarbeit.Shared.Contracts.csproj", "{E1B3D051-9CD5-4209-B19F-023456190C4D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,10 +29,6 @@ Global
 		{D175846E-E5B3-4E34-836E-FE19B246033A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D175846E-E5B3-4E34-836E-FE19B246033A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D175846E-E5B3-4E34-836E-FE19B246033A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{99DBD077-B118-4FD7-953A-1F118F4A0BED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{99DBD077-B118-4FD7-953A-1F118F4A0BED}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{99DBD077-B118-4FD7-953A-1F118F4A0BED}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{99DBD077-B118-4FD7-953A-1F118F4A0BED}.Release|Any CPU.Build.0 = Release|Any CPU
 		{48273370-DE78-4F5A-A145-B5AFD9CBF6DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{48273370-DE78-4F5A-A145-B5AFD9CBF6DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48273370-DE78-4F5A-A145-B5AFD9CBF6DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,9 +37,16 @@ Global
 		{EF049D04-3324-47A4-9817-DF0DD5C00FDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF049D04-3324-47A4-9817-DF0DD5C00FDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF049D04-3324-47A4-9817-DF0DD5C00FDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1B3D051-9CD5-4209-B19F-023456190C4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1B3D051-9CD5-4209-B19F-023456190C4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1B3D051-9CD5-4209-B19F-023456190C4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1B3D051-9CD5-4209-B19F-023456190C4D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E1B3D051-9CD5-4209-B19F-023456190C4D} = {09FBF95F-D6A5-403B-BD93-0A25D1A747FB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D7815500-095A-4082-9C66-D5C1BD69183C}

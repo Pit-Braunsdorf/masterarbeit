@@ -25,8 +25,8 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.1" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\shared\Masterarbeit.Shared.Contracts\Masterarbeit.Shared.Contracts.csproj" />
     <ProjectReference Include="..\Masterarbeit.DatabaseService.App\Masterarbeit.DatabaseService.App.csproj" />
-    <ProjectReference Include="..\Masterarbeit.DatabaseService.Contracts\Masterarbeit.DatabaseService.Contracts.csproj" />
     <ProjectReference Include="..\Masterarbeit.DatabaseService.Database\Masterarbeit.DatabaseService.Database.csproj" />
   </ItemGroup>
 

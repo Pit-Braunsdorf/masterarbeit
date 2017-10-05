@@ -2,7 +2,7 @@
 
 namespace Masterarbeit.Frontend.Contracts
 {
-    public class DatabaseOptions
+    public class DatabaseSettings
     {
         public string Url { get; set; }
     }

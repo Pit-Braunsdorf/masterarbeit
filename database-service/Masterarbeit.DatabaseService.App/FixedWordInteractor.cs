@@ -14,9 +14,9 @@ namespace Masterarbeit.DatabaseService.App
             _fixedWordProvider = fixedWordProvider;
         }
 
-        public void Create(FixedWord fixedWord)
+        public FixedWord Create(FixedWord fixedWord)
         {
-            _fixedWordProvider.CreateFixedWord(fixedWord);
+            return _fixedWordProvider.CreateFixedWord(fixedWord);
         }
 
         public void Create(IEnumerable<FixedWord> fixedWords)
@@ -34,9 +34,9 @@ namespace Masterarbeit.DatabaseService.App
             return _fixedWordProvider.GetAll();
         }
 
-        public void Update(FixedWord fixedWord)
+        public FixedWord Update(FixedWord fixedWord)
         {
-            _fixedWordProvider.UpdateFixedWord(fixedWord);
+            return _fixedWordProvider.UpdateFixedWord(fixedWord);
         }
 
         public void Update(IEnumerable<FixedWord> fixedWords)
@@ -46,8 +46,7 @@ namespace Masterarbeit.DatabaseService.App
 
         public void Delete(int id)
         {
-            var fixedWord = _fixedWordProvider.GetFixedWord(id);
-            _fixedWordProvider.DeleteFixedWord(fixedWord);
+            _fixedWordProvider.DeleteFixedWord(id);
         }
         public void Delete(FixedWord fixedWord)
         {

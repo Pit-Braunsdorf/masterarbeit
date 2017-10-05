@@ -5,6 +5,8 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using Masterarbeit.Frontend.Contracts;
+using Microsoft.Extensions.Options;
 
 namespace Masterarbeit.Frontend.DatabaseAccess
 {
@@ -12,9 +14,9 @@ namespace Masterarbeit.Frontend.DatabaseAccess
     {
         private readonly string _baseAddress;
 
-        public WebApiClient(string baseAddress)
+        public WebApiClient(IOptions<DatabaseSettings> settings)
         {
-            _baseAddress = baseAddress;
+            _baseAddress = settings.Value.Url;
         }
 
         public TResponse Get<TResponse>(string path)
@@ -36,18 +38,19 @@ namespace Masterarbeit.Frontend.DatabaseAccess
             }
         }
 
-        public void Put(string path, object content)
+        public TResponse Put<TResponse>(string path, object content)
         {
-            Put(path, null, content);
+            return Put<TResponse>(path, null, content);
         }
 
-        public void Put(string path, IDictionary<string, object> urlParameters, object content)
+        public TResponse Put<TResponse>(string path, IDictionary<string, object> urlParameters, object content)
         {
             var pathWithQuery = BuildPathWithQuery(path, urlParameters);
             using (var requestMessage = CreateRequestMessage(HttpMethod.Put, pathWithQuery, content))
             using (var responseMessage = SendRequestMessage(requestMessage))
             {
                 CheckResponseMessage(responseMessage);
+                return ParseResponseMessage<TResponse>(responseMessage);
             }
         }
 

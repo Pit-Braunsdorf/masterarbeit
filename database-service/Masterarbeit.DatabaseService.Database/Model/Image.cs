@@ -7,7 +7,7 @@ namespace Masterarbeit.DatabaseService.Database.Model
 {
     public class Image
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public DateTime UploadDate { get; set; }
         public List<Word> Words { get; set; }

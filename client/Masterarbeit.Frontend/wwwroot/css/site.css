@@ -35,3 +35,22 @@ textarea {
         display: none;
     }
 }
+
+.dropdown-menu-inverse {
+    background-color: #222222;
+    border-color: #080808;
+    border-color: #080808;
+}
+
+.dropdown-menu-inverse > li > a {
+    color: #9d9d9d;    
+}
+
+.dropdown-menu-inverse > li > a:hover {
+    color: #ffffff;
+    background-color: transparent;
+}
+
+.glyphicon-click:hover {
+    cursor: pointer;
+}

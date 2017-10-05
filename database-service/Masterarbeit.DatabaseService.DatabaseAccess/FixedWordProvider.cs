@@ -3,6 +3,8 @@ using System.Linq;
 using Masterarbeit.Shared.Contracts;
 using Masterarbeit.DatabaseService.Database;
 using Masterarbeit.DatabaseService.DatabaseAccess.Helper;
+using System;
+using System.Data.Common;
 
 namespace Masterarbeit.DatabaseService.DatabaseAccess
 {
@@ -23,11 +25,12 @@ namespace Masterarbeit.DatabaseService.DatabaseAccess
             }
         }
 
-        public void CreateFixedWord(FixedWord fixedWord)
+        public FixedWord CreateFixedWord(FixedWord fixedWord)
         {
             var dbFixedWord = MappingHelper.Map(fixedWord);
             _databaseContext.FixedWords.Add(dbFixedWord);
             _databaseContext.SaveChanges();
+            return MappingHelper.Map(dbFixedWord);
         }
 
         public void UpdateFixedWords(IEnumerable<FixedWord> fixedWords)
@@ -38,10 +41,22 @@ namespace Masterarbeit.DatabaseService.DatabaseAccess
             }
         }
 
-        public void UpdateFixedWord(FixedWord fixedWord)
+        public FixedWord UpdateFixedWord(FixedWord fixedWord)
         {
-            var dbFixedWord = MappingHelper.Map(fixedWord);
+            var dbFixedWord = _databaseContext.FixedWords.Single(x => x.Id == fixedWord.Id);
+            dbFixedWord.Word = fixedWord.Word;
+            dbFixedWord.Language = fixedWord.Language;
+            dbFixedWord.Updated = DateTime.Now;
+
             _databaseContext.FixedWords.Attach(dbFixedWord);
+            _databaseContext.SaveChanges();
+            return MappingHelper.Map(dbFixedWord);
+        }
+
+        public void DeleteFixedWord(int id)
+        {
+            var dbFixedWord = _databaseContext.FixedWords.Single(x => x.Id == id);
+            _databaseContext.FixedWords.Remove(dbFixedWord);
             _databaseContext.SaveChanges();
         }
 

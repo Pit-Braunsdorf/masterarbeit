@@ -37,20 +37,20 @@ namespace Masterarbeit.DatabaseService.Controllers
         [HttpPost]
         public ActionResult Post([FromBody]FixedWord fixedWord)
         {
-            _fixedWordInteractor.Create(fixedWord);
-            return new CreatedResult("FixedWord:", fixedWord);
+            var result = _fixedWordInteractor.Create(fixedWord);
+            return new CreatedResult("FixedWord:", result);
         }
 
         // PUT api/fixedword/{id}
         [HttpPut]
         public ActionResult Put([FromBody]FixedWord fixedWord)
         {
-            _fixedWordInteractor.Update(fixedWord);
-            return new AcceptedResult();
+            var result =_fixedWordInteractor.Update(fixedWord);
+            return new AcceptedResult("FixedWord", result);
         }
 
         // DELETE api/fixedword/5
-        [HttpDelete("{id}")]
+        [HttpDelete]
         public ActionResult Delete(int id)
         {
             _fixedWordInteractor.Delete(id);

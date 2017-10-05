@@ -4,4 +4,10 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\shared\Masterarbeit.Shared.Contracts\Masterarbeit.Shared.Contracts.csproj" />
+    <ProjectReference Include="..\Masterarbeit.Frontend.AzureAccess\Masterarbeit.Frontend.AzureAccess.csproj" />
+    <ProjectReference Include="..\Masterarbeit.Frontend.DatabaseAccess\Masterarbeit.Frontend.DatabaseAccess.csproj" />
+  </ItemGroup>
+
 </Project>

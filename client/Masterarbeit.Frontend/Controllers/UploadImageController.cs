@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Masterarbeit.Frontend.Controllers
 {
-    public class UpdateImageController : Controller
+    public class UploadImageController : Controller
     {
         // GET: /<controller>/
         public IActionResult Index()

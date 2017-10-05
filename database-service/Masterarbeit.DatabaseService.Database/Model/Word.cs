@@ -8,7 +8,7 @@ namespace Masterarbeit.DatabaseService.Database.Model
 {
     public class Word
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string ReadWord { get; set; }
         public string CorrectedWord { get; set; }

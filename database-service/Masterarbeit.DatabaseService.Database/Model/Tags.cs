@@ -4,7 +4,7 @@ namespace Masterarbeit.DatabaseService.Database.Model
 {
     public class Tags
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         public string Tag { get; set; }

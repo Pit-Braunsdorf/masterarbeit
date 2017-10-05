@@ -8,7 +8,7 @@ namespace Masterarbeit.DatabaseService.Database.Model
 {
     public class FixedWord
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Word { get; set; }
         [MaxLength(10)]

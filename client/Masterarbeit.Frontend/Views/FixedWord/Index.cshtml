@@ -1,0 +1,142 @@
+﻿@using Masterarbeit.Frontend.Models;
+@{
+    ViewData["Title"] = "Settings";
+}
+
+@model ShowFixedWordsViewModel;
+
+<h2>@ViewData["Title"].</h2>
+<h3>@ViewData["Message"]</h3>
+
+
+<script>
+    function editEntry(id) {
+        var current = $("#word_" + id).text();
+        $("#word_" + id).text(""); //Clear current
+        $("#word_" + id).append("<input id='word_" + id + "_input' type=\"text\" value=\"" + current + "\"/>");
+        
+        $('#save_' + id).show();
+        $('#edit_' + id).hide();
+    }
+
+    function deleteEntry(id) {
+        $.ajax({
+            url: '@Url.Action("Delete","FixedWord")',
+            data: {
+                "id": id
+            },
+            async: true
+        });
+        $("#tablerow_" + id).hide();
+    }
+
+    function saveEntry(id) {
+        if (id === -1) saveLastRow();
+        else {
+            var data = {
+                "id": $('#id_' + id).text(),
+                "word": $("#word_" + id + "_input").val(),
+                "language": $("#language_" + id).text(),
+                "inserted": $("#inserted_" + id).text()
+            }
+
+            $.ajax({
+                url: "@Url.Action("Update", "FixedWord")",
+                data: data,
+                async: true,
+                dataType: "json",
+                success: function (data) {
+                    $('#save_' + data.id).hide();
+                    $('#edit_' + data.id).show();
+                    $('#word_' + data.id).text(data.word);
+                    $('#updated_' + data.id).text(data.updated);
+                    $('#word_' + data.id + '_input').remove();
+                }
+            });
+        }
+    }
+
+    function saveLastRow() {
+        var data = {
+            "word": $("#word_lastRow_input").val(),
+            "language": $("#language_lastRow").text(),
+            "inserted": $("#inserted_lastRow").text()
+        }
+
+        $.ajax({
+            url: "@Url.Action("Create","FixedWord")",
+            data: data,
+            async: true,
+            dataType: "json",
+            success: function(data) {
+                $('#lastRow').attr("id", "tablerow_" + data.id);
+                $('#id_lastRow').text(data.id);
+                $('#id_lastRow').attr("id", "id_" + data.id);
+                $('#word_lastRow_input').remove();
+                $('#word_lastRow').text(data.word);
+                $('#word_lastRow').attr("id", "word_" + data.id);
+                $('#language_lastRow').attr("id", "language_" + data.id);
+                $('#inserted_lastRow').attr("id", "inserted_" + data.id);
+                $('#updated_lastRow').attr("id", "updated_" + data.id);
+                $('#edit_lastRow').show();
+                $('#edit_lastRow').attr("onclick", "editEntry(" + data.id + ")");
+                $('#edit_lastRow').attr("id", "edit_" + data.id);
+                $('#save_LastRow').hide();
+                $('#save_LastRow').attr("onclick", "saveEntry(" + data.id + ")");
+                $('#save_LastRow').attr("id", "save_" + data.id);
+                $('#delete_LastRow').attr("onclick", "deleteEntry(" + data.id + ")");
+                $('#delete_LastRow').attr("id", "delete_" + data.id);
+            }
+        });
+    }
+
+    function addLine() {
+        $('#table_FixedWord > tbody:first').append("<tr id='lastRow'>" +
+            "<td id='id_lastRow'></td>" +
+            "<td id='word_lastRow'><input id='word_lastRow_input' type=\"text\" /></td>" +
+            "<td id='language_lastRow'>DE-de</td>" +
+            "<td id='inserted_lastRow'>@DateTime.Now</td>" +
+            "<td id='updated_lastRow'></td>" +
+            "<td>" +
+            "<a class=\"glyphicon-click\" id=\"edit_lastRow\" onclick=\"editEntry(-1)\" hidden><span class=\"glyphicon glyphicon-pencil\"></span></a>" +
+            "<a class=\"glyphicon-click\" id=\"save_LastRow\" onclick=\"saveEntry(-1)\"><span class=\"glyphicon glyphicon-floppy-disk\"></span></a>" +
+            "<a class=\"glyphicon-click\" id=\"delete_LastRow\" onclick=\"deleteEntry(-1)\"><span class=\"glyphicon glyphicon-trash\"></span></a>" +
+            "</td>" +
+            "</tr>");
+    }
+</script>
+
+<table id="table_FixedWord" class="table table-striped table-responsive" style="width: 100%;">
+    <THEAD>
+    <tr>
+        <th hidden>#</th>
+        <th>Word</th>
+        <th>Language</th>
+        <th>Inserted</th>
+        <th>Updated</th>
+        <th></th>
+    </tr>
+    </THEAD>
+    <TBODY>
+    @foreach (var fixedWord in Model.FixedWords)
+    {
+        <tr id="tablerow_@fixedWord.Id">
+            <td id="id_@fixedWord.Id" hidden>@fixedWord.Id</td>
+            <td id="word_@fixedWord.Id">@fixedWord.Word</td>
+            <td id="language_@fixedWord.Id">@fixedWord.Language</td>
+            <td id="inserted_@fixedWord.Id">@fixedWord.Inserted</td>
+            <td id="updated_@fixedWord.Id">@fixedWord.Updated</td>
+            <td>
+                <a class="glyphicon-click" id="edit_@fixedWord.Id" onclick="editEntry(@fixedWord.Id)"><span class="glyphicon glyphicon-pencil"></span></a>
+                <a class="glyphicon-click" id="save_@fixedWord.Id" onclick="saveEntry(@fixedWord.Id)" hidden><span class="glyphicon glyphicon-floppy-disk"></span></a>
+                <a class="glyphicon-click" id="delete_@fixedWord.Id" onclick="deleteEntry(@fixedWord.Id)"><span class="glyphicon glyphicon-trash"></span></a>
+            </td>
+        </tr>
+    }
+    </TBODY>
+</table>
+
+<div class="row">
+    <div class="col-md-11"></div>
+    <div class="col-md-1"><a onclick="addLine()" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Add</a></div>
+</div>

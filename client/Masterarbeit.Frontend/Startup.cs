@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Masterarbeit.Frontend.App;
 using Masterarbeit.Frontend.Contracts;
+using Masterarbeit.Frontend.DatabaseAccess;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -32,6 +34,9 @@ namespace Masterarbeit.Frontend
             services.AddMvc();
 
             services.Configure<DatabaseSettings>(Configuration.GetSection("Database"));
+            services.AddTransient<FixedWordInteractor>();
+            services.AddTransient<FixedWordApiClient>();
+            services.AddTransient<WebApiClient>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

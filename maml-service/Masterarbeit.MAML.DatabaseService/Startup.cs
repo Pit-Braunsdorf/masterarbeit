@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Masterarbeit.DatabaseService.App;
-using Masterarbeit.DatabaseService.Database;
-using Masterarbeit.DatabaseService.DatabaseAccess;
+using Masterarbeit.MAML.DatabaseService.App;
+using Masterarbeit.MAML.DatabaseService.Database;
+using Masterarbeit.MAML.DatabaseService.DatabaseAccess;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.EntityFrameworkCore;
 
-namespace Masterarbeit.DatabaseService
+namespace Masterarbeit.MAML.DatabaseService
 {
     public class Startup
     {
@@ -33,18 +33,10 @@ namespace Masterarbeit.DatabaseService
         {
             // Add framework services.
             services.AddMvc();
+
             services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            
-            services.AddTransient<WordInteractor>();
-            services.AddTransient<WordProvider>();
-
-            services.AddTransient<ImageInteractor>();
-            services.AddTransient<ImageProvider>();
-
-            services.AddTransient<CategoryInteractor>();
-            services.AddTransient<CategoryProvider>();
-
-            services.AddTransient<DatabaseContext>();
+            services.AddTransient<FixedWordInteractor>();
+            services.AddTransient<FixedWordProvider>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

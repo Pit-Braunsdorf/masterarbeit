@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\shared\Masterarbeit.Shared.Contracts\Masterarbeit.Shared.Contracts.csproj" />
+    <ProjectReference Include="..\..\shared\Masterarbeit.Shared.DabaseAccess\Masterarbeit.Shared.DabaseAccess.csproj" />
+    <ProjectReference Include="..\Masterarbeit.MAML.DatabaseService.Database\Masterarbeit.MAML.DatabaseService.Database.csproj" />
+  </ItemGroup>
+
+</Project>

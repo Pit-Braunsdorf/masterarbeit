@@ -12,8 +12,7 @@ namespace Masterarbeit.DatabaseService.Database
         {
             
         }
-
-        public DbSet<FixedWord> FixedWords { get; set; }
+        
         public DbSet<Word> Words { get; set; }
         public DbSet<Image> Images { get; set; }
         public DbSet<Category> Categories { get; set; }
@@ -21,7 +20,6 @@ namespace Masterarbeit.DatabaseService.Database
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Image>().ToTable("Image");
-            modelBuilder.Entity<FixedWord>().ToTable("FixedWord");
             modelBuilder.Entity<Word>().ToTable("Words");
             modelBuilder.Entity<Category>().ToTable("Category");
         }

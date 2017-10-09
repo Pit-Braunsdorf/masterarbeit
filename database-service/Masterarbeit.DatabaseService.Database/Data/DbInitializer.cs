@@ -13,22 +13,7 @@ namespace Masterarbeit.DatabaseService.Database.Data
         {
             context.Database.EnsureCreated();
 
-            if (context.FixedWords.Any())
-            {
-                return; //DB has been seeded
-            }
-
-            var fixedWords = new FixedWord[]
-            {
-                new FixedWord {Word = "Test", Language = "de-DE", Inserted = DateTime.Today, Updated = null},
-            };
-
-            foreach (var f in fixedWords)
-            {
-                context.FixedWords.Add(f);
-            }
-
-            context.SaveChanges();
+           context.SaveChanges();
         }
     }
 }

@@ -1,19 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
+using Remotion.Linq.Parsing.Structure.IntermediateModel;
 
-namespace Masterarbeit.DatabaseService.Database.Model
+namespace Masterarbeit.MAML.DatabaseService.Database.Model
 {
     public class FixedWord
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Word { get; set; }
-        [MaxLength(10)]
         public string Language { get; set; }
-        public DateTime Inserted { get; set; }
-        public DateTime? Updated { get; set; }
+        public int Count { get; set; }
+        public int FalsePositiveCount { get; set; }
+        public DateTime CreateDate { get; set; } = DateTime.Now;
+
     }
 }

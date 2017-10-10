@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Masterarbeit.Frontend.DatabaseAccess;
+using Masterarbeit.Frontend.MAML.DatabaseAccess;
 using Masterarbeit.Shared.Contracts;
 
 namespace Masterarbeit.Frontend.App

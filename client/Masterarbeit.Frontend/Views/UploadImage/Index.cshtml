@@ -3,25 +3,117 @@
     ViewData["Title"] = "Update Image";
 }
 
-@model UpdateImageViewModel;
-
-<div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-10"><input type="file" name="myfiles" placeholder="Choose file..." multiple="multiple" accept="image/*;capture=camera"/></div>
-</div>
-
-<div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-10">
-        <div class="row">File Uploaded</div>
-        <div class="row">File Uploaded</div>
-        <div class="row">File Uploaded</div>
-        <div class="row">File Uploaded</div>
-        <div class="row">File Uploaded</div>
-        <div class="row">File Uploaded</div>
+@model UploadImagesViewModel;
+@*<div class="form-group">
+        <div class="col-md-10">
+            <p>Upload one or more files using this form:</p>
+            <input type="file" name="files" multiple />
+        </div>
     </div>
-</div>
+    <div class="form-group">
+        <div class="col-md-10">
+            <input type="submit" value="Upload" />
+        </div>
+    </div>*@
 
-<div class="row">
-    <a asp-controller="UploadImage" asp-action="TagImage">Weiter</a>
-</div>
+<form method="post" enctype="multipart/form-data" asp-controller="UploadImage" asp-action="UploadFiles">
+    <div class="row">
+        <div class="col-md-6"><input class="col-md-6" type="file" name="files" onchange="previewFile()" multiple /></div>
+        <div class="col-md-6"><input type="submit" class="btn btn-default" value="Upload" style="text-align: right" /></div>
+    </div>
+</form>
+
+<div id="thumbnails"></div>
+
+<script>
+    var files;
+
+    function previewFile() {
+        files = document.querySelector('input[type=file]');
+
+        if (files.files && files.files[0]) {
+            for (var i = 0; i < files.files.length; ++i) {
+                CreateThumbnail(i);
+            }
+        }
+    }
+
+    function CreateThumbnail(i) {
+        var file = document.querySelector('input[type=file]').files[i]; //sames as here
+        CreateThumbnailImageTag(i);
+        var preview = document.querySelector('#thumbnail_' + i); //selects the query named img
+        var reader = new FileReader();
+
+        reader.onloadend = function () {
+            preview.src = reader.result;
+        }
+
+        if (file) {
+            reader.readAsDataURL(file); //reads the data as a URL
+        } else {
+            preview.src = "";
+        }
+    }
+
+    function CreateThumbnailImageTag(id) {
+        if (id % 4 === 0) {
+            $("#thumbnails").append("<div id='row_" + id + "' class='row'></div>");
+        }
+
+        var rowId = id - id % 4;
+        $("#row_" + rowId).append("<img class='thumbnail ma_thumbnail col-md-2' id='thumbnail_" + id + "' />");
+    }
+
+    previewFile();  //calls the function named previewFile()
+</script>
+
+@*
+    <script>
+        function createThumbnails() {
+            var thumb = $('#imagePreview');
+            var files = $('#multiple_images').files;
+
+            thumb.html("");
+            if (!files) return;
+
+            for(var i = 0; i < files.length; i++)
+            {
+                var file = files[i];
+
+                if(!file.type.match(/image.*/))
+                    continue;
+
+                var img = document.createElement("img");
+                var reader = new FileReader();
+
+                reader.onload = (function(tImg) {
+                    return function(e) {
+                        tImg.src = e.target.result;
+                    };
+                })(img);
+
+                reader.readAsDataURL(file);
+
+                img.width = 100;
+                thumb.appendChild(img);
+            }
+        }
+    </script>
+
+    <div class="row">
+        <input type="file" id="multiple_images" multiple onchange="createThumbnails()" accept="image/*"/>
+
+        <div id="imagePreview">
+
+        </div>
+    </div>*@
+@*<div class="fileinput fileinput-new" data-provides="fileinput">
+        <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+            <img data-src="~/js/holder.js/100%x100%" alt="...">
+        </div>
+        <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+        <div>
+            <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="..."></span>
+            <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+        </div>
+    </div>*@

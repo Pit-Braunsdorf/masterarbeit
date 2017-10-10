@@ -8,15 +8,15 @@ using Masterarbeit.Frontend.Contracts;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 
-namespace Masterarbeit.Frontend.DatabaseAccess
+namespace Masterarbeit.Frontend.MAML.DatabaseAccess
 {
     public class WebApiClient
     {
         private readonly string _baseAddress;
 
-        public WebApiClient(IOptions<DatabaseSettings> settings)
+        public WebApiClient(IOptions<MAMLSettings> settings)
         {
-            _baseAddress = settings.Value.Url;
+            _baseAddress = settings.Value.DatabaseService;
         }
 
         public TResponse Get<TResponse>(string path)

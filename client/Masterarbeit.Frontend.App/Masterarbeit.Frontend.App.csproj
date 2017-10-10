@@ -6,8 +6,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\shared\Masterarbeit.Shared.Contracts\Masterarbeit.Shared.Contracts.csproj" />
+    <ProjectReference Include="..\..\shared\Masterarbeit.Shared.Helper\Masterarbeit.Shared.Helper.csproj" />
     <ProjectReference Include="..\Masterarbeit.Frontend.AzureAccess\Masterarbeit.Frontend.AzureAccess.csproj" />
     <ProjectReference Include="..\Masterarbeit.Frontend.DatabaseAccess\Masterarbeit.Frontend.DatabaseAccess.csproj" />
+    <ProjectReference Include="..\Masterarbeit.Frontend.MAML.DatabaseAccess\Masterarbeit.Frontend.MAML.DatabaseAccess.csproj" />
   </ItemGroup>
 
 </Project>

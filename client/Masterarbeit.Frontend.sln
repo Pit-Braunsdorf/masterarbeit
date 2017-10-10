@@ -5,17 +5,21 @@ VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masterarbeit.Frontend", "Masterarbeit.Frontend\Masterarbeit.Frontend.csproj", "{8BFF5C16-FBE5-4F99-9FC7-C6B5EE0F4F6A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Masterarbeit.Frontend.DatabaseAccess", "Masterarbeit.Frontend.DatabaseAccess\Masterarbeit.Frontend.DatabaseAccess.csproj", "{DCCAD20D-D75F-480A-9171-EC8500CF2DDC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masterarbeit.Frontend.App", "Masterarbeit.Frontend.App\Masterarbeit.Frontend.App.csproj", "{80D3EC98-3B3B-400D-9391-DB7EED15769C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Masterarbeit.Frontend.App", "Masterarbeit.Frontend.App\Masterarbeit.Frontend.App.csproj", "{80D3EC98-3B3B-400D-9391-DB7EED15769C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Masterarbeit.Frontend.AzureAccess", "Masterarbeit.Frontend.AzureAccess\Masterarbeit.Frontend.AzureAccess.csproj", "{8F0FEE1D-817A-461B-B42E-988619BAD69D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masterarbeit.Frontend.AzureAccess", "Masterarbeit.Frontend.AzureAccess\Masterarbeit.Frontend.AzureAccess.csproj", "{8F0FEE1D-817A-461B-B42E-988619BAD69D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{67777056-0F9F-4D0A-B675-C3FE492D8314}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masterarbeit.Shared.Contracts", "..\shared\Masterarbeit.Shared.Contracts\Masterarbeit.Shared.Contracts.csproj", "{E50904B6-0B0C-4077-A070-06F9D18C909B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masterarbeit.Frontend.Contracts", "Masterarbeit.Frontend.Contracts\Masterarbeit.Frontend.Contracts.csproj", "{97DDB957-FB2A-4695-A879-97470431E4E8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masterarbeit.Frontend.DatabaseAccess", "Masterarbeit.Frontend.DatabaseAccess\Masterarbeit.Frontend.DatabaseAccess.csproj", "{B34159BF-1D39-4CE7-81D0-CE92B86FF850}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masterarbeit.Frontend.MAML.DatabaseAccess", "Masterarbeit.Frontend.MAML.DatabaseAccess\Masterarbeit.Frontend.MAML.DatabaseAccess.csproj", "{D3CB6D4C-FA05-4C46-B0E7-3FF734B329C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Masterarbeit.Shared.Helper", "..\shared\Masterarbeit.Shared.Helper\Masterarbeit.Shared.Helper.csproj", "{BBCBB94B-7ACF-4496-B85E-8204CB35C95F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,10 +31,6 @@ Global
 		{8BFF5C16-FBE5-4F99-9FC7-C6B5EE0F4F6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BFF5C16-FBE5-4F99-9FC7-C6B5EE0F4F6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BFF5C16-FBE5-4F99-9FC7-C6B5EE0F4F6A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DCCAD20D-D75F-480A-9171-EC8500CF2DDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DCCAD20D-D75F-480A-9171-EC8500CF2DDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DCCAD20D-D75F-480A-9171-EC8500CF2DDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DCCAD20D-D75F-480A-9171-EC8500CF2DDC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{80D3EC98-3B3B-400D-9391-DB7EED15769C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{80D3EC98-3B3B-400D-9391-DB7EED15769C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80D3EC98-3B3B-400D-9391-DB7EED15769C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -47,12 +47,25 @@ Global
 		{97DDB957-FB2A-4695-A879-97470431E4E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97DDB957-FB2A-4695-A879-97470431E4E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97DDB957-FB2A-4695-A879-97470431E4E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B34159BF-1D39-4CE7-81D0-CE92B86FF850}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B34159BF-1D39-4CE7-81D0-CE92B86FF850}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B34159BF-1D39-4CE7-81D0-CE92B86FF850}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B34159BF-1D39-4CE7-81D0-CE92B86FF850}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3CB6D4C-FA05-4C46-B0E7-3FF734B329C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3CB6D4C-FA05-4C46-B0E7-3FF734B329C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3CB6D4C-FA05-4C46-B0E7-3FF734B329C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3CB6D4C-FA05-4C46-B0E7-3FF734B329C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBCBB94B-7ACF-4496-B85E-8204CB35C95F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBCBB94B-7ACF-4496-B85E-8204CB35C95F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBCBB94B-7ACF-4496-B85E-8204CB35C95F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBCBB94B-7ACF-4496-B85E-8204CB35C95F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E50904B6-0B0C-4077-A070-06F9D18C909B} = {67777056-0F9F-4D0A-B675-C3FE492D8314}
+		{BBCBB94B-7ACF-4496-B85E-8204CB35C95F} = {67777056-0F9F-4D0A-B675-C3FE492D8314}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5D1E3BF3-42D8-4DA7-8648-509432941C40}

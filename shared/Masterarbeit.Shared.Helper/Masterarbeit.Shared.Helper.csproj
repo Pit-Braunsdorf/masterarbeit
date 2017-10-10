@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\shared\Masterarbeit.Shared.Contracts\Masterarbeit.Shared.Contracts.csproj" />
+    <ProjectReference Include="..\Masterarbeit.Shared.Contracts\Masterarbeit.Shared.Contracts.csproj" />
   </ItemGroup>
 
 </Project>

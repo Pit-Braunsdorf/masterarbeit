@@ -32,8 +32,6 @@ namespace Masterarbeit.Frontend.Helper
                 Id = fixedWord.Id,
                 Word = fixedWord.Word,
                 Language = fixedWord.Language,
-                Inserted = fixedWord.Inserted,
-                Updated = fixedWord.Updated
             };
         }
     }

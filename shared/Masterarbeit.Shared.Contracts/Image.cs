@@ -9,6 +9,6 @@ namespace Masterarbeit.Shared.Contracts
         public DateTime UploadDate { get; set; }
         public List<Word> Words { get; set; }
         public List<Category> Categories { get; set; }
-        public string BlobUri { get; set; }
+        public byte[] ImageData { get; set; }
     }
 }

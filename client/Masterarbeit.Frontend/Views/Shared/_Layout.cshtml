@@ -16,6 +16,8 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
+    
+    <link rel="stylesheet" href="~/lib/jasny-bootstrap/css/jasny-bootstrap.min.css" />
     @Html.Raw(JavaScriptSnippet.FullScript)
 </head>
 <body>
@@ -49,9 +51,12 @@
     </div>
 
     <environment names="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/jquery/dist/jquery.js">
+        </script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="~/js/holder.js"></script>
+        <script src="~/lib/jasny-bootstrap/js/jasny-bootstrap.js"></script>
     </environment>
     <environment names="Staging,Production">
         <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
@@ -67,6 +72,8 @@
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
         </script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
+        <script src="~/js/holder.min.js"></script>
+        <script src="~/lib/jasny-bootstrap/js/jasny-bootstrap.min.js"></script>
     </environment>
 
     @RenderSection("Scripts", required: false)

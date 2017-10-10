@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace Masterarbeit.Frontend.Models
 {
-    public class UpdateImageViewModel
+    public class UploadImagesViewModel
     {
-        public string File { get; set; }
+        public IEnumerable<UploadViewModel> Images { get; set; }
     }
 }

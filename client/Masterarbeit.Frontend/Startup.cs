@@ -1,15 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Masterarbeit.Frontend.App;
+using Masterarbeit.Frontend.AzureAccess;
 using Masterarbeit.Frontend.Contracts;
 using Masterarbeit.Frontend.DatabaseAccess;
+using Masterarbeit.Frontend.MAML.DatabaseAccess;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using WebApiClient = Masterarbeit.Frontend.MAML.DatabaseAccess.WebApiClient;
 
 namespace Masterarbeit.Frontend
 {
@@ -34,9 +38,18 @@ namespace Masterarbeit.Frontend
             services.AddMvc();
 
             services.Configure<DatabaseSettings>(Configuration.GetSection("Database"));
+            services.Configure<MAMLSettings>(Configuration.GetSection("MAML"));
+
             services.AddTransient<FixedWordInteractor>();
             services.AddTransient<FixedWordApiClient>();
+
+            services.AddTransient<ImageInteractor>();
+            services.AddTransient<ImageWebApiClient>();
+            services.AddTransient<OcrAccess>();
+            services.AddTransient<HttpClient>();
+
             services.AddTransient<WebApiClient>();
+            services.AddTransient<DatabaseAccess.WebApiClient>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

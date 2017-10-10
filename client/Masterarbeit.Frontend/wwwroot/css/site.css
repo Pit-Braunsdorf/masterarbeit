@@ -54,3 +54,8 @@ textarea {
 .glyphicon-click:hover {
     cursor: pointer;
 }
+
+.ma_thumbnail {
+    /*width: 20%;*/
+    margin-left: 10px;
+}

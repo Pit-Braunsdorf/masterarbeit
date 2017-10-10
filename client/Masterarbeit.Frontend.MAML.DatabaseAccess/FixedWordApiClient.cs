@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Runtime.ConstrainedExecution;
-using System.Text;
-using Masterarbeit.Frontend.Contracts;
+﻿using System.Collections.Generic;
 using Masterarbeit.Shared.Contracts;
 
-namespace Masterarbeit.Frontend.DatabaseAccess
+namespace Masterarbeit.Frontend.MAML.DatabaseAccess
 {
     public class FixedWordApiClient
     {

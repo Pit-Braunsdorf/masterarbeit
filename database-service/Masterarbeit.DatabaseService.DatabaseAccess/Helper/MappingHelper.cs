@@ -47,9 +47,9 @@ namespace Masterarbeit.DatabaseService.DatabaseAccess.Helper
             return new Database.Model.Image
             {
                 Id = image.Id,
-                Words = Map(image.Words).ToList(),
-                Categories = Map(image.Categories).ToList(),
-                BlobUri = image.BlobUri,
+                Words = image.Words != null ? Map(image.Words)?.ToList() : null,
+                Categories =  image.Categories != null ? Map(image.Categories).ToList(): null,
+                ImageData = image.ImageData,
                 UploadDate = image.UploadDate
             };
         }
@@ -96,7 +96,7 @@ namespace Masterarbeit.DatabaseService.DatabaseAccess.Helper
             return new Image
             {
                 Words = Map(dbImage.Words).ToList(),
-                BlobUri = dbImage.BlobUri,
+                ImageData = dbImage.ImageData,
                 Categories = Map(dbImage.Categories).ToList(),
                 Id = dbImage.Id,
                 UploadDate = dbImage.UploadDate

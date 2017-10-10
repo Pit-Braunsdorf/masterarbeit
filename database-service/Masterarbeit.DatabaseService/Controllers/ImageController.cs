@@ -37,17 +37,24 @@ namespace Masterarbeit.DatabaseService.Controllers
             return new CreatedResult("Image:", image);
         }
 
-        [HttpPost]
-        public ActionResult Post([FromBody] IEnumerable<Image> images)
-        {
-            _imageInteractor.Create(images);
-            return new CreatedResult("Image:", images);
-        }
+        //[HttpPost]
+        //public ActionResult Post([FromBody] IEnumerable<Image> images)
+        //{
+        //    _imageInteractor.Create(images);
+        //    return new CreatedResult("Image:", images);
+        //}
 
         [HttpPut("{id}")]
         public ActionResult Put(int id, [FromBody] Image image)
         {
             image.Id = id;
+            _imageInteractor.Update(image);
+            return new AcceptedResult();
+        }
+
+        [HttpPut]
+        public ActionResult Put([FromBody] Image image)
+        {
             _imageInteractor.Update(image);
             return new AcceptedResult();
         }

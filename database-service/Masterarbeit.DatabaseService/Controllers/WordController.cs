@@ -30,6 +30,14 @@ namespace Masterarbeit.DatabaseService.Controllers
             return new JsonResult(result);
         }
 
+        [Route("GetWordsForImage")]
+        [HttpGet]
+        public ActionResult GetWordsForImage(int imageId)
+        {
+            var result = _wordInteractor.GetWordsForImage(imageId);
+            return new JsonResult(result);
+        }
+
         [HttpPost]
         public ActionResult Post([FromBody] Word word)
         {

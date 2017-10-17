@@ -58,5 +58,10 @@ namespace Masterarbeit.DatabaseService.App
                 _wordProvider.Delete(word);
             }
         }
+
+        public IEnumerable<Word> GetWordsForImage(int imageId)
+        {
+            return _wordProvider.GetWordsForImage(imageId);
+        }
     }
 }

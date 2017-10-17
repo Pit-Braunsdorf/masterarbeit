@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewData["Title"] = "ShowImage";
+}
+
+@using Masterarbeit.Frontend.Models
+@model ShowImageViewModel
+
+<h2>ShowImage</h2>
+<div class="row">
+    <img class="col-md-6" src="data:image/png;base64,@Convert.ToBase64String(Model.ImageData)" alt="" />
+    <div class="col-md-6">
+        <div class="ma-words">
+            <table class="table table-striped table-hover table-responsive">
+                <THEAD>
+                    <tr>
+                        <th hidden>ID</th>
+                        <th>Read Word</th>
+                        <th>CorrectedWord</th>
+                        <th>Language</th>
+                    </tr>
+                </THEAD>
+                <TBODY>
+                    @foreach (var word in Model.Words)
+                        {
+                        <tr>
+                            <td hidden>@word.Id</td>
+                            <td>@word.ReadWord</td>
+                            <td>@word.CorrectedWord</td>
+                            <td>@word.Language</td>
+                        </tr>
+                        }
+                </TBODY>
+            </table>
+        </div>
+    </div>
+</div>

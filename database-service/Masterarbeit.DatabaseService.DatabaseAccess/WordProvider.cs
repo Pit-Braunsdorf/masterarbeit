@@ -48,5 +48,12 @@ namespace Masterarbeit.DatabaseService.DatabaseAccess
             var dbWord = MappingHelper.Map(word);
             _databaseContext.Words.Remove(dbWord);
         }
+
+        public IEnumerable<Word> GetWordsForImage(int imageId)
+        {
+            var dbWords = _databaseContext.Words.Where(x => x.ImageId == imageId);
+            var words = MappingHelper.Map(dbWords);
+            return words;
+        }
     }
 }

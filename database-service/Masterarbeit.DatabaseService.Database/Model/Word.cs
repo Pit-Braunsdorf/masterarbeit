@@ -16,5 +16,8 @@ namespace Masterarbeit.DatabaseService.Database.Model
         public string Language { get; set; }
         public DateTime Inserted { get; set; }
         public DateTime? Updated { get; set; }
+        [ForeignKey("Model.Image"), Column(Order = 0)]
+        public int ImageId { get; set; }
+        public virtual Image Image { get; set; } 
     }
 }

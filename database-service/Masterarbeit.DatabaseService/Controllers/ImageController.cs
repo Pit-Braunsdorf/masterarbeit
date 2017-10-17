@@ -16,24 +16,33 @@ namespace Masterarbeit.DatabaseService.Controllers
             _imageInteractor = imageInteractor;
         }
 
-        [HttpGet("{id}")]
-        public ActionResult Get(int id)
+        [HttpGet]
+
+        public ActionResult Get([FromQuery] int? id = null)
         {
-            var result = _imageInteractor.Get(id);
-            return new JsonResult(result);
+            if (!id.HasValue)
+            {
+                var result = _imageInteractor.Get();
+                return new JsonResult(result);
+            }
+            else
+            {
+                var result = _imageInteractor.Get(id.Value);
+                return new JsonResult(result);
+            }
         }
 
-        [HttpGet]
-        public ActionResult Get()
-        {
-            var result = _imageInteractor.Get();
-            return new JsonResult(result);
-        }
+        //[HttpGet]
+        //public ActionResult Get()
+        //{
+        //    var result = _imageInteractor.Get();
+        //    return new JsonResult(result);
+        //}
 
         [HttpPost]
         public ActionResult Post([FromBody] Image image)
         {
-            _imageInteractor.Create(image);
+            image = _imageInteractor.Create(image);
             return new CreatedResult("Image:", image);
         }
 

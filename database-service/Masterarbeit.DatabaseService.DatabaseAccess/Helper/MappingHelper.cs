@@ -95,9 +95,9 @@ namespace Masterarbeit.DatabaseService.DatabaseAccess.Helper
         {
             return new Image
             {
-                Words = Map(dbImage.Words).ToList(),
+                Words = dbImage.Words != null ? Map(dbImage.Words).ToList() : new List<Word>(),
                 ImageData = dbImage.ImageData,
-                Categories = Map(dbImage.Categories).ToList(),
+                Categories = dbImage.Categories != null ? Map(dbImage.Categories).ToList() : new List<Category>(),
                 Id = dbImage.Id,
                 UploadDate = dbImage.UploadDate
             };

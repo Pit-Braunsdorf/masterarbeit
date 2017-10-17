@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using Masterarbeit.DatabaseService.Database.Model;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Masterarbeit.DatabaseService.Database
 {
@@ -19,9 +21,8 @@ namespace Masterarbeit.DatabaseService.Database
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Image>().ToTable("Image");
-            modelBuilder.Entity<Word>().ToTable("Words");
-            modelBuilder.Entity<Category>().ToTable("Category");
+            modelBuilder.Entity<Image>().ToTable("Image").HasMany(x => x.Words);
+            modelBuilder.Entity<Word>();
         }
     }
 }

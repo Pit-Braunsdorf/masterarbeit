@@ -25,19 +25,26 @@ namespace Masterarbeit.DatabaseService.App
             return _imageProvider.Get();
         }
 
-        public void Create(Image image)
+        public Image Create(Image image)
         {
-            _imageProvider.Create(image);
+            return _imageProvider.Create(image);
         }
 
-        public void Create(IEnumerable<Image> images)
+        public IEnumerable<Image> Create(IEnumerable<Image> images)
         {
-            _imageProvider.Create(images);
+            return _imageProvider.Create(images);
         }
 
         public void Update(Image image)
         {
-            _imageProvider.Update(image);
+            try
+            {
+                _imageProvider.Update(image);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
         public void Delete(int id)

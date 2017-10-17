@@ -45,6 +45,9 @@ namespace Masterarbeit.Frontend
 
             services.AddTransient<ImageInteractor>();
             services.AddTransient<ImageWebApiClient>();
+
+            services.AddTransient<WordWebApiClient>();
+
             services.AddTransient<OcrAccess>();
             services.AddTransient<HttpClient>();
 
@@ -74,7 +77,7 @@ namespace Masterarbeit.Frontend
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Image}/{action=Index}/{id?}");
             });
         }
     }

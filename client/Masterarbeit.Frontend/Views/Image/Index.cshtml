@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+@using Masterarbeit.Frontend.Models;
+@model ViewImageViewModel
+
+<h1>Hier werden die Bilder dann angezeigt</h1>
+<div id="thumbnails">
+    @for (var i = 0; i < Model.Count;)
+    {
+        if (i % 4 == 0)
+        {
+            <div class="row">
+                @for(var k = 0; k < 4 && i < Model.Count; ++k,++i)
+                {
+    <a asp-controller="Image" asp-action="ShowImage" asp-route-id="@Model.Images[i].Id"><img class='thumbnail ma_thumbnail ma_thumbnail_clickable col-md-2' src="data:image/png;base64,@Convert.ToBase64String(Model.Images[i].ImageData)" alt="Red dot"></a>
+                }
+            </div>
+        }
+    }
+</div>

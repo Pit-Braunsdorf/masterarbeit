@@ -12,11 +12,13 @@ namespace Masterarbeit.Frontend.App
     {
         private readonly ImageWebApiClient _imageWebApiClient;
         private readonly OcrAccess _ocrAccess;
+        private WordWebApiClient _wordWebApiClient;
 
-        public ImageInteractor(ImageWebApiClient imageWebApiClient, OcrAccess ocrAccess)
+        public ImageInteractor(ImageWebApiClient imageWebApiClient, OcrAccess ocrAccess, WordWebApiClient wordWebApiClient)
         {
             _imageWebApiClient = imageWebApiClient;
             _ocrAccess = ocrAccess;
+            _wordWebApiClient = wordWebApiClient;
         }
 
         public Image CreateImage(byte[] image)
@@ -34,6 +36,11 @@ namespace Masterarbeit.Frontend.App
         {
             return _ocrAccess.SendAnalysisRequest(image);
         }
+        public byte[] CreateThumbnail(byte[] image)
+        {
+            return _ocrAccess.CreateThumbnail(image);
+        }
+
 
         public void SaveOCRResult(Image image, OCRResult ocrResult)
         {
@@ -57,6 +64,22 @@ namespace Masterarbeit.Frontend.App
                 }
             }
             image.Words = words;
+        }
+
+        public List<Image> GetImages()
+        {
+            var images = _imageWebApiClient.Get();
+            return images;
+        }
+
+        public Image GetImage(int id)
+        {
+            return _imageWebApiClient.Get(id);
+        }
+
+        public IEnumerable<Word> GetWordsForImage(int imageId)
+        {
+            return _wordWebApiClient.GetWordsForImage(imageId);
         }
     }
 }

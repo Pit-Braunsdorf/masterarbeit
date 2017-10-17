@@ -27,18 +27,20 @@ namespace Masterarbeit.DatabaseService.DatabaseAccess
             return MappingHelper.Map(dbImages);
         }
 
-        public void Create(Image image)
+        public Image Create(Image image)
         {
             var dbImage = MappingHelper.Map(image);
             _databaseContext.Images.Add(dbImage);
             _databaseContext.SaveChanges();
+            return MappingHelper.Map(dbImage);
         }
 
-        public void Create(IEnumerable<Image> images)
+        public IEnumerable<Image> Create(IEnumerable<Image> images)
         {
-            var dbImages = MappingHelper.Map(images);
+            var dbImages = MappingHelper.Map(images).ToList();
             _databaseContext.Images.AddRange(dbImages);
             _databaseContext.SaveChanges();
+            return MappingHelper.Map(dbImages);
         }
 
         public void Update(Image image)
